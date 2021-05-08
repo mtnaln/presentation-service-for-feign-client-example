@@ -14,19 +14,6 @@ public class PresentationController {
         this.calculationService = calculationService;
     }
 
-    /*
-    @GetMapping("/{price}/{productType}")
-    public String showTotalPrice(@PathVariable double price, @PathVariable String productType) {
-
-
-        String resourceUrl = "http://localhost:8081/" + price + "/" + productType;
-        ResponseEntity<Double> response = restTemplate.getForEntity(resourceUrl, Double.class);
-        return "Product Price: " + price + "   ---   Product Type: " + productType + "   ---   Total Price: " + productType
-                + "   ---   Total Price: " + response.getBody();
-    }
-     */
-
-
     @GetMapping("/{price}/{productType}")
     public String showTotalPrice(@PathVariable double price, @PathVariable String productType) {
         Double totalPrice = calculationService.showTotalPrice(price, productType);
